@@ -1,5 +1,7 @@
 #Runtime: 804 ms, faster than 30.58% of Python3 online submissions for Two Sum.
 #Memory Usage: 13.8 MB, less than 72.79% of Python3 online submissions for Two Sum.
+#16/12/2019
+#DD/MM/YY
 
 def twoSum(nums, target):
   for i in nums:

@@ -1,4 +1,7 @@
-/
+// Runtime: 160 ms, faster than 18.00% of JavaScript online submissions for Two Sum.
+// Memory Usage: 34.7 MB, less than 62.40% of JavaScript online submissions for Two Sum.
+// 16/12/2019
+// DD/MM/YY
 
 function count(target, list) {
   let total = 0
