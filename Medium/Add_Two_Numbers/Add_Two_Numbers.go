@@ -1,3 +1,5 @@
+package Add_Two_Numbers
+
 // Runtime: 12 ms, faster than 65.70% of Go online submissions for Add Two Numbers.
 // Memory Usage: 5.9 MB, less than 7.32% of Go online submissions for Add Two Numbers.
 // 17/12/2019
@@ -10,8 +12,6 @@
  *     Next *ListNode
  * }
  */
-
-package Add_Two_Numbers
 
 import (
     "strconv"
