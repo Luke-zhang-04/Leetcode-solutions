@@ -33,7 +33,7 @@ class Solution:
 
         return array
     
-    def findMedianSortedArrays(self, nums1, nums2):
+    def findMedianSortedArrays(self, nums1: list, nums2: list) -> float:
         array = self.merge(nums1, nums2)
         if len(array) % 2 == 1:
             return float(array[len(array)//2])

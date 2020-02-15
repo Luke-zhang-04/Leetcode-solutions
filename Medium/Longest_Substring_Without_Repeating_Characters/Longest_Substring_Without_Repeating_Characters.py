@@ -4,7 +4,7 @@
 #DD/MM/YY
 
 class Solution:
-    def lengthOfLongestSubstring(self, s):
+    def lengthOfLongestSubstring(self, s: str) -> int:
         letters = set(list(s))        
         if len(letters) <= 2: return len(letters)
         else:
