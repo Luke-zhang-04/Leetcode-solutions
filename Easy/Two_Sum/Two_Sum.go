@@ -1,9 +1,7 @@
-package Two_Sum
-
-// Runtime: 76 ms, faster than 8.22% of Go online submissions for Two Sum.
+// Runtime: 28 ms, faster than 34.28% of Go online submissions for Two Sum.
 // Memory Usage: 2.9 MB, less than 100.00% of Go online submissions for Two Sum.
-// 16/12/2019
-// DD/MM/YY
+// 02/21/2019
+// MM/DD/YY
 
 func in(target int, list []int) bool {
 	for _, i := range list {
