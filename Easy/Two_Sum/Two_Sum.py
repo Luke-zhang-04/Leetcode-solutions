@@ -6,6 +6,7 @@
 class Solution:
     def twoSum(self, nums: list, target: int) -> list:
         for i in nums:
+            print(i)
             if target-i in nums:
                 if nums.count(target-i) >= 2:
                     indices = [index for index, x in enumerate(nums) if x == target-i]
