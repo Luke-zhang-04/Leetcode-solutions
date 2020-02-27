@@ -1,30 +1,11 @@
 #include <vector>
 
-// Runtime: 164 ms, faster than 18.73% of C++ online submissions for Two Sum.
-// Memory Usage: 9.3 MB, less than 81.47% of C++ online submissions for Two Sum.
-// 02/21/2020
+// Runtime: 8 ms, faster than 93.28% of C++ online submissions for Two Sum.
+// Memory Usage: 9.4 MB, less than 67.57% of C++ online submissions for Two Sum.
+// 02/25/2020
 // MM/DD/YYYY
 
-bool contains(int target, std::vector<int>& list) {
-    for (const int &i : list) {
-        if (target == i) {
-            return true;
-        }
-    }
-    return false;
-}
-
-int count(int target, std::vector<int>& list) {
-    int total = 0;
-    for (const int &i : list) {
-        if (i == target) {
-			total++;
-		}
-	}
-	return total;
-}
-
-int indexOf(int target, std::vector<int>& list) {
+int indexOf(std::vector<int>& list, int target) {
     for (unsigned int i = 0; i < list.size(); i++) {
         if (target == list[i]) {
             return i;
@@ -33,35 +14,66 @@ int indexOf(int target, std::vector<int>& list) {
     return -1;
 }
 
-std::vector<int> indice(int target, std::vector<int>& list) {
-    std::vector<int> indices;
-    
-    for (unsigned int i = 0; i < list.size(); i++) {
-        if (list[i] == target) {
-            indices.push_back(i);
+std::vector<int> shell_sort(std::vector<int> &array) {
+    int gap = array.size()/2;
+    while (gap >= 1) {
+        for (int i = gap; i < array.size(); i++) { //iterate through array, starting from gap
+            int comparator = array[i]; //make comparisons with this
+            int output; //for accessing x outside the array
+            int index; //for negative indexes
+
+            for (int x = i; x > gap-2; x -= gap) { //iterate throguh array with gap as the step
+                output = x; //to access x outside the loop
+                if (x-gap < 0) { //in case of negative index
+                    index = array.size()-x-gap;
+                } else {
+                    index = x-gap;
+                }
+
+                if (array[index] <= comparator) { //break when correct spot is found
+					break;
+				} else { //otherwise, move elements forward to make space
+					array[x] = array[index];
+				}
+            }
+            array[output] = comparator; //insert comparator in the correct spot
         }
+        gap /= 2; //increment the gap
     }
-    return indices;
+    return array;
 }
+
 
 class Solution {
     public:
         std::vector<int> twoSum(std::vector<int>& nums, int target) {
-            for (const int &i : nums) {
-                if (contains(target-i, nums)) {
-                    if (count(target-i, nums) >= 2) {
-                        std::vector<int> indices = indice(target-i, nums);
-                        std::vector<int> res = {indices[0], indices[1]};
-                        return res;
-                    } else if (indexOf(i, nums) == indexOf(target-i, nums)) {
-                        continue;
-                    } else {
-                        std::vector<int> res = {indexOf(i, nums), indexOf(target-i, nums)};
-                        return res;
+            std::vector<int> input_array(nums);
+            std::vector<int> array = shell_sort(input_array);
+            
+            for (unsigned int ind = 0; ind < array.size(); ind ++) {
+                for (unsigned int i = array.size()-1; i > ind; i--) {
+                    if (array[ind] + array[i] == target) {
+                        if (array[ind] != array[i]) {
+                            std::vector<int> output = {
+                                indexOf(nums, array[i]), 
+                                indexOf(nums, array[ind])
+                            };
+                            return output;
+                        } else {
+                            int foo = indexOf(nums, array[ind]);
+                            std::vector<int> slice = std::vector<int>(nums.begin() + foo + 1, nums.end());
+                            std::vector<int> output = {
+                                foo,
+                                indexOf(slice, (array[i]))+foo+1
+                            };
+                            return output;
+                        }
+                    } else if (target-array[ind] > array[i]) {
+                        break;
                     }
                 }
             }
-            std::vector<int> res = {};
-            return res;
+            std::vector<int> out = {};
+            return out;
         }
 };
