@@ -2,3 +2,5 @@
 *.pyc
 bin
 .vscode
+node_modules
+*.log

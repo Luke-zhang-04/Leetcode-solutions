@@ -1,7 +1,11 @@
-// Runtime: 28 ms, faster than 34.28% of Go online submissions for Two Sum.
-// Memory Usage: 2.9 MB, less than 100.00% of Go online submissions for Two Sum.
-// 02/21/2019
-// MM/DD/YY
+package main
+
+/*
+Runtime: 28 ms, faster than 34.28% of Go online submissions for Two Sum.
+Memory Usage: 2.9 MB, less than 100.00% of Go online submissions for Two Sum.
+02/21/2019
+MM/DD/YY
+*/
 
 func in(target int, list []int) bool {
 	for _, i := range list {
@@ -9,6 +13,7 @@ func in(target int, list []int) bool {
 			return true
 		}
 	}
+
 	return false
 }
 
@@ -19,6 +24,7 @@ func count(target int, list []int) int {
 			total++
 		}
 	}
+
 	return total
 }
 
@@ -29,6 +35,7 @@ func indice(target int, list []int) []int {
 			indices = append(indices, i)
 		}
 	}
+
 	return indices
 }
 
@@ -38,6 +45,7 @@ func indexOf(target int, list []int) int {
 			return k
 		}
 	}
+
 	return -1
 }
 
@@ -46,6 +54,7 @@ func twoSum(nums []int, target int) []int {
 		if in(target-i, nums) {
 			if count(target-i, nums) >= 2 {
 				indices := indice(target-i, nums)
+
 				return []int{indices[0], indices[1]}
 			} else if indexOf(i, nums) == indexOf(target-i, nums) {
 				continue
@@ -54,5 +63,6 @@ func twoSum(nums []int, target int) []int {
 			}
 		}
 	}
+
 	return nil
 }

@@ -1,9 +1,11 @@
-package lengthOfLongestSubstring
+package main
 
-// Runtime: 20 ms, faster than 31.05% of Go online submissions for Longest Substring Without Repeating Characters.
-// Memory Usage: 6.4 MB, less than 20.00% of Go online submissions for Longest Substring Without Repeating Characters.
-// 13/02/2020
-// DD/MM/YY
+/*
+Runtime: 20 ms, faster than 31.05% of Go online submissions for Longest Substring Without Repeating Characters.
+Memory Usage: 6.4 MB, less than 20.00% of Go online submissions for Longest Substring Without Repeating Characters.
+13/02/2020
+DD/MM/YY
+*/
 
 import "strings"
 
@@ -49,5 +51,6 @@ func lengthOfLongestSubstring(s string) int {
 			}
 		}
 	}
+
 	return longest
 }
