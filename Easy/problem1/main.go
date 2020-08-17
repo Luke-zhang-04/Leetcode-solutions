@@ -1,10 +1,12 @@
 package main
 
+// Solution for Memory only
+
 /*
-Runtime: 28 ms, faster than 34.28% of Go online submissions for Two Sum.
-Memory Usage: 2.9 MB, less than 100.00% of Go online submissions for Two Sum.
-02/21/2019
-MM/DD/YY
+Runtime: 28 ms, faster than 32.44% of Go online submissions for Two Sum.
+Memory Usage: 2.9 MB, less than 99.94% of Go online submissions for Two Sum.
+16/08/2020
+DD/MM/YY
 */
 
 func in(target int, list []int) bool {
